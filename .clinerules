@@ -8,32 +8,36 @@ We are creating a concise specifications document for the Model Context Protocol
 The authority for the specification is the Model Context Protocol SDK code
 - There may be a local copy of the MCP SDK code, see below for the location
 - If not, use the jar file in maven
-- We are writing our own specification documentation because the online documentation for the MCP SDK is wrong
-  - the APIs are not stable
-  - The examples online are not always accurate
-- Do not assume that the local specification or the local code is correct
-  - The local code is proof the local specification is correct
-  - try to keep the local specification and the local code in sync with each other
+- We are writing our own package-local specification documentation because the online documentation for the MCP SDK is wrong
+  - the MCP APIs are not stable 
+  - The examples online are not always accurate, it can be stale, future thinking, or incomplete
+- Do not assume that the package-local specification or the package-local code is correct
+  - We are building the package-local specification based on the MCP SDK code and incorrect MCP SDK documentation
+  - try to keep the package-local specification and the package-local code in sync with each other
 
-The local specifications document
+The package-local specifications document
 
 - is called README.md and is located in the project root
+- is concise
 - will be for the Java SDK version 0.8.0
-- is a single Markdown document that explains the architecture, dependencies, and usage
+- is a single markdown document that explains the architecture, dependencies, and usage
 - includes correct package names and import statements
 - provides concise examples for client and server implementations for both sync and async operations
 - provides concise examples for various transport configurations (stdio transport, not custom or websocket) and error handling
 - showcase how to implement resources, tools, and prompts
-- the examples are pure java, they will not use subprocesses
+- the examples are pure java and do not resort to subprocess calls
 - Including proper Maven dependency declarations, including the Bill of Materials (BOM)
 - Lists best practices and references
 
-The local code complements the local specification with proof the local specification is correct through tested examples using maven and short, working examples.
+The package-local code complements the package-local specification
+- The package-local code provides evidence the package-local specification is correct
+- Each example in the package-local specification should have a correstponding implementation in the package-local code
+- Each implementation the the pacakge-local code should have one or more unit tests
 
 ## Terminal
 
 Assume your shell is powershell as we are running under microsoft windows
-- Unix commands may not be available to you so try powershell commands first
+- Unix commands may not be available so prefer powershell commands over unix commands
 - Many commands return immediately but you don't seem to realize the command is completed
 
 ## Implementation
@@ -49,9 +53,9 @@ Assume your shell is powershell as we are running under microsoft windows
 - do not set maven's failOnError to false
 - do not set testFailureIgnore to true
 - do not set mvn -Dmaven.compiler.failOnError=false 
-- You may have to look at the local source code, if it is available, paying special attention to the tests and comments
-  - The local version of the source may be here: C:\Users\jayes\OneDrive\Desktop\java-sdk-0.8.0\mcp
-- You may need to use jar to understand what is in the maven files, for example:
+- You may be able to leverage a local copy of the MCP source code, if it is available, paying special attention to the tests and comments
+  - The local copy of the MCP source code may be here: C:\Users\jayes\OneDrive\Desktop\java-sdk-0.8.0\mcp
+- You may be able to use jar to understand what is in the maven files, for example:
   - mvn depeencency:tree
   - jar -tf C:\Users\jayes\.m2\repository\io\modelcontextprotocol\sdk\mcp\0.8.0\mcp-0.8.0.jar
 
