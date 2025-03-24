@@ -62,16 +62,16 @@ Assume your shell is powershell as we are running under microsoft windows
 ## Testing
 
 - Each class in src/main/java/user/jakecarr should have appropriate tests
-  - The tests should be non-trivial
-  - If the class is implementing a server, the test should implement a client
-  - If the class is implementing a client, the test should implement a server
+  - The tests should be non-trivial. For example
+    - If the class is implementing a server, the test should implement a client
+    - If the class is implementing a client, the test should implement a server
 - Add timeouts to the tests so they don't hang forever
 
 ## On Demand Tasks
 
-I may ask you to run these at any time
+Do not run these tasks without me asking you to run them.
 
-### On Demand Task: Pre-Checkin Task
+### On Demand Task: cleanup task
 
 Run the following when I ask for a pre-checkin task
 
@@ -83,6 +83,7 @@ Run the following when I ask for a pre-checkin task
   - Print off a check box 
 - Remove redundant files (e.g., *.bak, *.class). Don't worry about files tagged in the .gitignore 
 - Remove duplicate tests
+- Remove empty directories
 - Remove unused imports
 - Verify all the tests have timeouts. Add timeouts if you have to.
 - Build the project and fix any errors. Fail the pre-checkin task if the fix is not obvious
@@ -95,8 +96,8 @@ Run the following when I ask for a pre-checkin task
 
 ### On Demand Task: Checkin Task
 
-- make sure the code builds (mvn clean build)
-- make sure the tests pass (mvn clean test)
+- cleanup task
+- do not proceed past this point unless everything in the cleanup task succeeded
 - Generate an appropriate checkin comment
   - When using git diff, use the "--no-pager" option to avoid the pager, for example "git --no-pager diff"
 - Use the checkin comment to check the code in
