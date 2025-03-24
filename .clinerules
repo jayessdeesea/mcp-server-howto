@@ -1,0 +1,104 @@
+# Cline Custom Instructions
+
+We are creating a concise specifications document for the Model Context Protocol (MCP) SDK
+
+- The target audience is an AI
+- The AI will use this document to generate code for MCP servers and clients
+
+The authority for the specification is the Model Context Protocol SDK code
+- There may be a local copy of the MCP SDK code, see below for the location
+- If not, use the jar file in maven
+- We are writing our own specification documentation because the online documentation for the MCP SDK is wrong
+  - the APIs are not stable
+  - The examples online are not always accurate
+- Do not assume that the local specification or the local code is correct
+  - The local code is proof the local specification is correct
+  - try to keep the local specification and the local code in sync with each other
+
+The local specifications document
+
+- is called README.md and is located in the project root
+- will be for the Java SDK version 0.8.0
+- is a single Markdown document that explains the architecture, dependencies, and usage
+- includes correct package names and import statements
+- provides concise examples for client and server implementations for both sync and async operations
+- provides concise examples for various transport configurations (stdio transport, not custom or websocket) and error handling
+- showcase how to implement resources, tools, and prompts
+- the examples are pure java, they will not use subprocesses
+- Including proper Maven dependency declarations, including the Bill of Materials (BOM)
+- Lists best practices and references
+
+The local code complements the local specification with proof the local specification is correct through tested examples using maven and short, working examples.
+
+## Terminal
+
+Assume your shell is powershell as we are running under microsoft windows
+- Unix commands may not be available to you so try powershell commands first
+- Many commands return immediately but you don't seem to realize the command is completed
+
+## Implementation
+
+- Use the following design principles KISS, DRY, YAGNI, and SOLID
+- do not create wrapper .sh or .bat scripts. Instead implement maven tests and run them instead
+- Place code in the user.jakecarr.mcp.howto java package
+- do not use deprecated features
+- code and tests should not spawn subprocesses
+
+## Debugging
+
+- do not set maven's failOnError to false
+- do not set testFailureIgnore to true
+- do not set mvn -Dmaven.compiler.failOnError=false 
+- You may have to look at the local source code, if it is available, paying special attention to the tests and comments
+  - The local version of the source may be here: C:\Users\jayes\OneDrive\Desktop\java-sdk-0.8.0\mcp
+- You may need to use jar to understand what is in the maven files, for example:
+  - mvn depeencency:tree
+  - jar -tf C:\Users\jayes\.m2\repository\io\modelcontextprotocol\sdk\mcp\0.8.0\mcp-0.8.0.jar
+
+## Testing
+
+- Each class in src/main/java/user/jakecarr should have appropriate tests
+  - The tests should be non-trivial
+  - If the class is implementing a server, the test should implement a client
+  - If the class is implementing a client, the test should implement a server
+- Add timeouts to the tests so they don't hang forever
+
+## On Demand Tasks
+
+I may ask you to run these at any time
+
+### On Demand Task: Pre-Checkin Task
+
+Run the following when I ask for a pre-checkin task
+
+- For each of the code examples in the readme.md
+  - Verify there is code in src/main/java/usr/jakecarr that representative of the example, if not exactly the example
+  - Print off a check box 
+- For each of the classes in src/main/java/user/jakecarr
+  - Verify there is an appropriate test for this class
+  - Print off a check box 
+- Remove redundant files (e.g., *.bak, *.class). Don't worry about files tagged in the .gitignore 
+- Remove duplicate tests
+- Remove unused imports
+- Verify all the tests have timeouts. Add timeouts if you have to.
+- Build the project and fix any errors. Fail the pre-checkin task if the fix is not obvious
+- Run tests and fix any errors. Fail the pre-checkin task if the fix is not obvious
+- Verify the local specification (README.md) and the code have the same Maven dependencies
+- Verify the README.md has code examples for the following
+  - client and server implementations for both sync and async operations
+  - resources, tools, and prompts
+  - various transport configurations and error handling
+
+### On Demand Task: Checkin Task
+
+- make sure the code builds (mvn clean build)
+- make sure the tests pass (mvn clean test)
+- Generate an appropriate checkin comment
+  - When using git diff, use the "--no-pager" option to avoid the pager, for example "git --no-pager diff"
+- Use the checkin comment to check the code in
+- Push the code 
+
+## Other Sources
+
+- https://modelcontextprotocol.io/sdk/java/mcp-overview
+- https://github.com/modelcontextprotocol/java-sdk/tree/0.8.x/mcp
