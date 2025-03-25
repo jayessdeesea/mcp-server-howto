@@ -1,4 +1,4 @@
-package user.jakecarr.mcp.howto.examples.resources;
+package user.jakecarr.mcp.howto.examples.server;
 
 import io.modelcontextprotocol.server.McpServer;
 import io.modelcontextprotocol.server.McpSyncServer;
@@ -16,33 +16,33 @@ import java.util.regex.Pattern;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Tests for the DynamicResourcesExample class.
+ * Tests for the SyncServerStdioResourcesExample class.
  */
-public class DynamicResourcesExampleTest {
+public class SyncServerStdioResourcesExampleTest {
 
     /**
-     * Test that verifies the DynamicResourcesExample class exists.
+     * Test that verifies the SyncServerStdioResourcesExample class exists.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("DynamicResourcesExample class should exist")
+    @DisplayName("SyncServerStdioResourcesExample class should exist")
     public void testClassExists() {
-        assertNotNull(DynamicResourcesExample.class);
+        assertNotNull(SyncServerStdioResourcesExample.class);
     }
     
     /**
-     * Test that verifies the DynamicResourcesExample can be instantiated.
+     * Test that verifies the SyncServerStdioResourcesExample can be instantiated.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("DynamicResourcesExample should be instantiable")
+    @DisplayName("SyncServerStdioResourcesExample should be instantiable")
     public void testCanBeInstantiated() {
         try {
             // Create an instance using reflection
-            DynamicResourcesExample instance = DynamicResourcesExample.class.getDeclaredConstructor().newInstance();
+            SyncServerStdioResourcesExample instance = SyncServerStdioResourcesExample.class.getDeclaredConstructor().newInstance();
             assertNotNull(instance);
         } catch (Exception e) {
-            fail("Failed to instantiate DynamicResourcesExample: " + e.getMessage());
+            fail("Failed to instantiate SyncServerStdioResourcesExample: " + e.getMessage());
         }
     }
     
@@ -51,15 +51,15 @@ public class DynamicResourcesExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("DynamicResourcesExample should have a main method")
+    @DisplayName("SyncServerStdioResourcesExample should have a main method")
     public void testMainMethodExists() {
         try {
             // Check if the main method exists
-            DynamicResourcesExample.class.getMethod("main", String[].class);
+            SyncServerStdioResourcesExample.class.getMethod("main", String[].class);
             // If we get here, the method exists
             assertTrue(true);
         } catch (NoSuchMethodException e) {
-            fail("main method not found in DynamicResourcesExample");
+            fail("main method not found in SyncServerStdioResourcesExample");
         }
     }
     
@@ -68,11 +68,11 @@ public class DynamicResourcesExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("DynamicResourcesExample should have a valid RESOURCE_PATTERN field")
+    @DisplayName("SyncServerStdioResourcesExample should have a valid RESOURCE_PATTERN field")
     public void testResourcePatternField() {
         try {
             // Get the RESOURCE_PATTERN field using reflection
-            Field field = DynamicResourcesExample.class.getDeclaredField("RESOURCE_PATTERN");
+            Field field = SyncServerStdioResourcesExample.class.getDeclaredField("RESOURCE_PATTERN");
             field.setAccessible(true);
             
             // Get the value of the field
@@ -99,11 +99,11 @@ public class DynamicResourcesExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("DynamicResourcesExample should have a working generateDynamicContent method")
+    @DisplayName("SyncServerStdioResourcesExample should have a working generateDynamicContent method")
     public void testGenerateDynamicContent() {
         try {
             // Get the generateDynamicContent method using reflection
-            Method method = DynamicResourcesExample.class.getDeclaredMethod("generateDynamicContent", String.class, String.class);
+            Method method = SyncServerStdioResourcesExample.class.getDeclaredMethod("generateDynamicContent", String.class, String.class);
             method.setAccessible(true);
             
             // Invoke the method
@@ -122,13 +122,13 @@ public class DynamicResourcesExampleTest {
     }
     
     /**
-     * Test that verifies the server creation code in DynamicResourcesExample.
+     * Test that verifies the server creation code in SyncServerStdioResourcesExample.
      */
     @Test
     @Timeout(value = 10, unit = TimeUnit.SECONDS)
-    @DisplayName("DynamicResourcesExample should create a server correctly")
+    @DisplayName("SyncServerStdioResourcesExample should create a server correctly")
     public void testServerCreation() {
-        // This test verifies that the server creation code in DynamicResourcesExample is correct
+        // This test verifies that the server creation code in SyncServerStdioResourcesExample is correct
         // by creating a server using the same pattern
         
         try {

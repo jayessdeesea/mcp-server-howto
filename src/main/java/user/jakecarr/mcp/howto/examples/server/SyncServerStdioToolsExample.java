@@ -1,4 +1,4 @@
-package user.jakecarr.mcp.howto.examples.tools;
+package user.jakecarr.mcp.howto.examples.server;
 
 import io.modelcontextprotocol.server.McpServer;
 import io.modelcontextprotocol.server.McpSyncServer;
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Example of implementing tools in an MCP server.
  */
-public class ToolsImplementationExample {
+public class SyncServerStdioToolsExample {
 
     
     public static void main(String[] args) throws Exception {

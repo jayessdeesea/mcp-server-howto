@@ -22,9 +22,8 @@ The package-local specifications document
 - will be for the Java SDK version 0.8.0
 - is a single markdown document that explains the architecture, dependencies, and usage
 - includes correct package names and import statements
-- provides concise examples for client and server implementations for both sync and async operations
-- provides concise examples for various transport configurations (stdio transport, not custom or websocket) and error handling
-- showcase how to implement resources, tools, and prompts
+- provides concise set of examples (see Set of Examples for the actual examples)
+- provides concise examples for error handling
 - the examples are pure java and do not resort to subprocess calls
 - Including proper Maven dependency declarations, including the Bill of Materials (BOM)
 - Lists best practices and references
@@ -33,6 +32,23 @@ The package-local code complements the package-local specification
 - The package-local code provides evidence the package-local specification is correct
 - Each example in the package-local specification should have a correstponding implementation in the package-local code
 - Each implementation the the pacakge-local code should have one or more unit tests
+
+# Set of Examples
+
+The set of examples covers all possible combinations of
+
+- implemeentation type - one of client or server (required)
+- execution mode - one of sync or async (required)
+- transport mechanistm - one of stdio (required)
+- functionality - one of tools, resources, or prompts (required)
+
+In the README.md, order the examples by implementation type, execution mode, transport mechanism, then functionality.
+
+The classes will be named
+- user.jakecarr.mcp.howto.examples.{implementation-type}.{execution-mode}{implementation-type}{transport-mechanism}{functionality}Example.java
+
+The test classes will be named
+- user.jakecarr.mcp.howto.examples.{implementation-type}.{execution-mode}{implementation-type}{transport-mechanism}{functionality}ExampleTest.java
 
 ## Terminal
 
@@ -89,10 +105,9 @@ Run the following when I ask for a pre-checkin task
 - Build the project and fix any errors. Fail the pre-checkin task if the fix is not obvious
 - Run tests and fix any errors. Fail the pre-checkin task if the fix is not obvious
 - Verify the local specification (README.md) and the code have the same Maven dependencies
-- Verify the README.md has code examples for the following
-  - client and server implementations for both sync and async operations
-  - resources, tools, and prompts
-  - various transport configurations and error handling
+- Verify the README.md provides concise examples covering examples identified in the Set of Examples section
+- Verify the README.md provides concise examples for error handling
+- Verify the main classes and the test classes are named correctly
 
 ### On Demand Task: Checkin Task
 

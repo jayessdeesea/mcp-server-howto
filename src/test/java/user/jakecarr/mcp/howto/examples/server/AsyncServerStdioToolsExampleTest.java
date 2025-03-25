@@ -1,12 +1,13 @@
 package user.jakecarr.mcp.howto.examples.server;
 
 import io.modelcontextprotocol.server.McpServer;
-import io.modelcontextprotocol.server.McpSyncServer;
+import io.modelcontextprotocol.server.McpAsyncServer;
 import io.modelcontextprotocol.server.transport.StdioServerTransportProvider;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Timeout;
+import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,33 +18,33 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Tests for the SyncServerExample class.
+ * Tests for the AsyncServerStdioToolsExample class.
  */
-public class SyncServerExampleTest {
+public class AsyncServerStdioToolsExampleTest {
 
     /**
-     * Test that verifies the SyncServerExample class exists.
+     * Test that verifies the AsyncServerStdioToolsExample class exists.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncServerExample class should exist")
+    @DisplayName("AsyncServerStdioToolsExample class should exist")
     public void testClassExists() {
-        assertNotNull(SyncServerExample.class);
+        assertNotNull(AsyncServerStdioToolsExample.class);
     }
     
     /**
-     * Test that verifies the SyncServerExample can be instantiated.
+     * Test that verifies the AsyncServerStdioToolsExample can be instantiated.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncServerExample should be instantiable")
+    @DisplayName("AsyncServerStdioToolsExample should be instantiable")
     public void testCanBeInstantiated() {
         try {
             // Create an instance using reflection
-            SyncServerExample instance = SyncServerExample.class.getDeclaredConstructor().newInstance();
+            AsyncServerStdioToolsExample instance = AsyncServerStdioToolsExample.class.getDeclaredConstructor().newInstance();
             assertNotNull(instance);
         } catch (Exception e) {
-            fail("Failed to instantiate SyncServerExample: " + e.getMessage());
+            fail("Failed to instantiate AsyncServerStdioToolsExample: " + e.getMessage());
         }
     }
     
@@ -52,26 +53,26 @@ public class SyncServerExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncServerExample should have a main method")
+    @DisplayName("AsyncServerStdioToolsExample should have a main method")
     public void testMainMethodExists() {
         try {
             // Check if the main method exists
-            SyncServerExample.class.getMethod("main", String[].class);
+            AsyncServerStdioToolsExample.class.getMethod("main", String[].class);
             // If we get here, the method exists
             assertTrue(true);
         } catch (NoSuchMethodException e) {
-            fail("main method not found in SyncServerExample");
+            fail("main method not found in AsyncServerStdioToolsExample");
         }
     }
     
     /**
-     * Test that verifies the server creation code in SyncServerExample.
+     * Test that verifies the server creation code in AsyncServerStdioToolsExample.
      */
     @Test
     @Timeout(value = 10, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncServerExample should create a server correctly")
+    @DisplayName("AsyncServerStdioToolsExample should create a server correctly")
     public void testServerCreation() {
-        // This test verifies that the server creation code in SyncServerExample is correct
+        // This test verifies that the server creation code in AsyncServerStdioToolsExample is correct
         // by creating a server using the same pattern
         
         try {
@@ -82,7 +83,7 @@ public class SyncServerExampleTest {
             StdioServerTransportProvider transportProvider = new StdioServerTransportProvider();
             
             // Create server using the builder pattern
-            McpSyncServer server = McpServer.sync(transportProvider)
+            McpAsyncServer server = McpServer.async(transportProvider)
                 .serverInfo(serverInfo)
                 .tool(
                     new McpSchema.Tool(
@@ -101,7 +102,7 @@ public class SyncServerExampleTest {
                             "Tool executed with param1=" + param1 + ", param2=" + param2
                         ));
                         
-                        return new McpSchema.CallToolResult(content, false);
+                        return Mono.just(new McpSchema.CallToolResult(content, false));
                     }
                 )
                 .build();
@@ -113,15 +114,15 @@ public class SyncServerExampleTest {
     }
     
     /**
-     * Test that verifies the createToolSchema method in SyncServerExample.
+     * Test that verifies the createToolSchema method in AsyncServerStdioToolsExample.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncServerExample should create a tool schema correctly")
+    @DisplayName("AsyncServerStdioToolsExample should create a tool schema correctly")
     public void testCreateToolSchema() {
         try {
             // Get the createToolSchema method using reflection
-            java.lang.reflect.Method method = SyncServerExample.class.getDeclaredMethod("createToolSchema");
+            java.lang.reflect.Method method = AsyncServerStdioToolsExample.class.getDeclaredMethod("createToolSchema");
             method.setAccessible(true);
             
             // Invoke the method

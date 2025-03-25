@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 /**
  * Example of implementing an asynchronous MCP server.
  */
-public class AsyncServerExample {
+public class AsyncServerStdioToolsExample {
 
     public static void main(String[] args) {
         try {

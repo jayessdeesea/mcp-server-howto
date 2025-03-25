@@ -1,4 +1,4 @@
-package user.jakecarr.mcp.howto.examples.tools;
+package user.jakecarr.mcp.howto.examples.server;
 
 import io.modelcontextprotocol.server.McpServer;
 import io.modelcontextprotocol.server.McpSyncServer;
@@ -16,33 +16,33 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Tests for the ToolsImplementationExample class.
+ * Tests for the SyncServerStdioToolsExample class.
  */
-public class ToolsImplementationExampleTest {
+public class SyncServerStdioToolsExampleTest {
 
     /**
-     * Test that verifies the ToolsImplementationExample class exists.
+     * Test that verifies the SyncServerStdioToolsExample class exists.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("ToolsImplementationExample class should exist")
+    @DisplayName("SyncServerStdioToolsExample class should exist")
     public void testClassExists() {
-        assertNotNull(ToolsImplementationExample.class);
+        assertNotNull(SyncServerStdioToolsExample.class);
     }
     
     /**
-     * Test that verifies the ToolsImplementationExample can be instantiated.
+     * Test that verifies the SyncServerStdioToolsExample can be instantiated.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("ToolsImplementationExample should be instantiable")
+    @DisplayName("SyncServerStdioToolsExample should be instantiable")
     public void testCanBeInstantiated() {
         try {
             // Create an instance using reflection
-            ToolsImplementationExample instance = ToolsImplementationExample.class.getDeclaredConstructor().newInstance();
+            SyncServerStdioToolsExample instance = SyncServerStdioToolsExample.class.getDeclaredConstructor().newInstance();
             assertNotNull(instance);
         } catch (Exception e) {
-            fail("Failed to instantiate ToolsImplementationExample: " + e.getMessage());
+            fail("Failed to instantiate SyncServerStdioToolsExample: " + e.getMessage());
         }
     }
     
@@ -51,26 +51,26 @@ public class ToolsImplementationExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("ToolsImplementationExample should have a main method")
+    @DisplayName("SyncServerStdioToolsExample should have a main method")
     public void testMainMethodExists() {
         try {
             // Check if the main method exists
-            ToolsImplementationExample.class.getMethod("main", String[].class);
+            SyncServerStdioToolsExample.class.getMethod("main", String[].class);
             // If we get here, the method exists
             assertTrue(true);
         } catch (NoSuchMethodException e) {
-            fail("main method not found in ToolsImplementationExample");
+            fail("main method not found in SyncServerStdioToolsExample");
         }
     }
     
     /**
-     * Test that verifies the server creation code in ToolsImplementationExample.
+     * Test that verifies the server creation code in SyncServerStdioToolsExample.
      */
     @Test
     @Timeout(value = 10, unit = TimeUnit.SECONDS)
-    @DisplayName("ToolsImplementationExample should create a server correctly")
+    @DisplayName("SyncServerStdioToolsExample should create a server correctly")
     public void testServerCreation() {
-        // This test verifies that the server creation code in ToolsImplementationExample is correct
+        // This test verifies that the server creation code in SyncServerStdioToolsExample is correct
         // by creating a server using the same pattern
         
         try {
@@ -126,9 +126,9 @@ public class ToolsImplementationExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("ToolsImplementationExample should implement the echo tool correctly")
+    @DisplayName("SyncServerStdioToolsExample should implement the echo tool correctly")
     public void testEchoTool() {
-        // This test verifies that the echo tool implementation in ToolsImplementationExample is correct
+        // This test verifies that the echo tool implementation in SyncServerStdioToolsExample is correct
         
         try {
             // Create a test server with the echo tool
@@ -181,9 +181,9 @@ public class ToolsImplementationExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("ToolsImplementationExample should implement the calculate tool correctly")
+    @DisplayName("SyncServerStdioToolsExample should implement the calculate tool correctly")
     public void testCalculateTool() {
-        // This test verifies that the calculate tool implementation in ToolsImplementationExample is correct
+        // This test verifies that the calculate tool implementation in SyncServerStdioToolsExample is correct
         
         try {
             // Create a test server with the calculate tool

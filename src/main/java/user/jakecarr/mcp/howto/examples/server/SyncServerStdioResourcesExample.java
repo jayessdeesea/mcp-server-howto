@@ -1,4 +1,4 @@
-package user.jakecarr.mcp.howto.examples.resources;
+package user.jakecarr.mcp.howto.examples.server;
 
 import io.modelcontextprotocol.server.McpServer;
 import io.modelcontextprotocol.server.McpSyncServer;
@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * This example demonstrates how to implement dynamic resources in an MCP server
  * using the resourceTemplates method in the server builder.
  */
-public class DynamicResourcesExample {
+public class SyncServerStdioResourcesExample {
 
     // Pattern for matching resource URIs
     private static final Pattern RESOURCE_PATTERN = Pattern.compile("example://([^/]+)/([^/]+)");

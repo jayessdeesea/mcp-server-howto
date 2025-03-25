@@ -15,33 +15,33 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Tests for the SyncClientExample class.
+ * Tests for the SyncClientStdioToolsExample class.
  */
-public class SyncClientExampleTest {
+public class SyncClientStdioToolsExampleTest {
 
     /**
-     * Test that verifies the SyncClientExample class exists.
+     * Test that verifies the SyncClientStdioToolsExample class exists.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncClientExample class should exist")
+    @DisplayName("SyncClientStdioToolsExample class should exist")
     public void testClassExists() {
-        assertNotNull(SyncClientExample.class);
+        assertNotNull(SyncClientStdioToolsExample.class);
     }
     
     /**
-     * Test that verifies the SyncClientExample can be instantiated.
+     * Test that verifies the SyncClientStdioToolsExample can be instantiated.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncClientExample should be instantiable")
+    @DisplayName("SyncClientStdioToolsExample should be instantiable")
     public void testCanBeInstantiated() {
         try {
             // Create an instance using reflection
-            SyncClientExample instance = SyncClientExample.class.getDeclaredConstructor().newInstance();
+            SyncClientStdioToolsExample instance = SyncClientStdioToolsExample.class.getDeclaredConstructor().newInstance();
             assertNotNull(instance);
         } catch (Exception e) {
-            fail("Failed to instantiate SyncClientExample: " + e.getMessage());
+            fail("Failed to instantiate SyncClientStdioToolsExample: " + e.getMessage());
         }
     }
     
@@ -50,26 +50,26 @@ public class SyncClientExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncClientExample should have a main method")
+    @DisplayName("SyncClientStdioToolsExample should have a main method")
     public void testMainMethodExists() {
         try {
             // Check if the main method exists
-            SyncClientExample.class.getMethod("main", String[].class);
+            SyncClientStdioToolsExample.class.getMethod("main", String[].class);
             // If we get here, the method exists
             assertTrue(true);
         } catch (NoSuchMethodException e) {
-            fail("main method not found in SyncClientExample");
+            fail("main method not found in SyncClientStdioToolsExample");
         }
     }
     
     /**
-     * Test that verifies the client creation code in SyncClientExample.
+     * Test that verifies the client creation code in SyncClientStdioToolsExample.
      */
     @Test
     @Timeout(value = 10, unit = TimeUnit.SECONDS)
-    @DisplayName("SyncClientExample should create a client correctly")
+    @DisplayName("SyncClientStdioToolsExample should create a client correctly")
     public void testClientCreation() {
-        // This test verifies that the client creation code in SyncClientExample is correct
+        // This test verifies that the client creation code in SyncClientStdioToolsExample is correct
         // by creating a client using the same pattern
         
         try {

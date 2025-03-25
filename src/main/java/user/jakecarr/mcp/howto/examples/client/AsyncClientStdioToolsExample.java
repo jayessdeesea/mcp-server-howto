@@ -1,18 +1,19 @@
 package user.jakecarr.mcp.howto.examples.client;
 
 import io.modelcontextprotocol.client.McpClient;
-import io.modelcontextprotocol.client.McpSyncClient;
+import io.modelcontextprotocol.client.McpAsyncClient;
 import io.modelcontextprotocol.client.transport.ServerParameters;
 import io.modelcontextprotocol.client.transport.StdioClientTransport;
 import io.modelcontextprotocol.spec.McpSchema;
+import io.modelcontextprotocol.spec.McpError;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Example of using the SyncClient to interact with an MCP server.
+ * Example of using the AsyncClient with Stdio transport to interact with an MCP server.
  */
-public class SyncClientExample {
+public class AsyncClientStdioToolsExample {
 
     public static void main(String[] args) throws Exception {
         // Create client info
@@ -26,14 +27,17 @@ public class SyncClientExample {
         StdioClientTransport transport = new StdioClientTransport(serverParams);
         
         // Create the client using the builder pattern
-        McpSyncClient client = McpClient.sync(transport)
+        McpAsyncClient client = McpClient.async(transport)
             .clientInfo(clientInfo)
             .build();
         
         try {
+            // Initialize the client (connects to the server)
+            client.initialize().block(); // Block until initialization completes
+            
             // Read a resource
             McpSchema.ReadResourceRequest request = new McpSchema.ReadResourceRequest("example://resource");
-            McpSchema.ReadResourceResult result = client.readResource(request);
+            McpSchema.ReadResourceResult result = client.readResource(request).block();
             
             // Access the resource contents
             if (result.contents() != null && !result.contents().isEmpty()) {
@@ -49,7 +53,7 @@ public class SyncClientExample {
             toolArgs.put("param2", 42);
             
             McpSchema.CallToolRequest toolRequest = new McpSchema.CallToolRequest("example-tool", toolArgs);
-            McpSchema.CallToolResult toolResponse = client.callTool(toolRequest);
+            McpSchema.CallToolResult toolResponse = client.callTool(toolRequest).block();
             
             // Access the tool response content
             if (toolResponse.content() != null && !toolResponse.content().isEmpty()) {
@@ -57,6 +61,13 @@ public class SyncClientExample {
                 if (content instanceof McpSchema.TextContent textContent) {
                     System.out.println("Tool response: " + textContent.text());
                 }
+            }
+        } catch (Exception e) {
+            if (e.getCause() instanceof McpError) {
+                McpError mcpError = (McpError) e.getCause();
+                System.err.println("MCP Error: " + mcpError.getMessage());
+            } else {
+                System.err.println("Error: " + e.getMessage());
             }
         } finally {
             // Close the client

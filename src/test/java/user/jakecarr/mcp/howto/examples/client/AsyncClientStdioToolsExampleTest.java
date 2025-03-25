@@ -14,33 +14,33 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Tests for the AsyncClientExample class.
+ * Tests for the AsyncClientStdioToolsExample class.
  */
-public class AsyncClientExampleTest {
+public class AsyncClientStdioToolsExampleTest {
 
     /**
-     * Test that verifies the AsyncClientExample class exists.
+     * Test that verifies the AsyncClientStdioToolsExample class exists.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("AsyncClientExample class should exist")
+    @DisplayName("AsyncClientStdioToolsExample class should exist")
     public void testClassExists() {
-        assertNotNull(AsyncClientExample.class);
+        assertNotNull(AsyncClientStdioToolsExample.class);
     }
     
     /**
-     * Test that verifies the AsyncClientExample can be instantiated.
+     * Test that verifies the AsyncClientStdioToolsExample can be instantiated.
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("AsyncClientExample should be instantiable")
+    @DisplayName("AsyncClientStdioToolsExample should be instantiable")
     public void testCanBeInstantiated() {
         try {
             // Create an instance using reflection
-            AsyncClientExample instance = AsyncClientExample.class.getDeclaredConstructor().newInstance();
+            AsyncClientStdioToolsExample instance = AsyncClientStdioToolsExample.class.getDeclaredConstructor().newInstance();
             assertNotNull(instance);
         } catch (Exception e) {
-            fail("Failed to instantiate AsyncClientExample: " + e.getMessage());
+            fail("Failed to instantiate AsyncClientStdioToolsExample: " + e.getMessage());
         }
     }
     
@@ -49,26 +49,26 @@ public class AsyncClientExampleTest {
      */
     @Test
     @Timeout(value = 5, unit = TimeUnit.SECONDS)
-    @DisplayName("AsyncClientExample should have a main method")
+    @DisplayName("AsyncClientStdioToolsExample should have a main method")
     public void testMainMethodExists() {
         try {
             // Check if the main method exists
-            AsyncClientExample.class.getMethod("main", String[].class);
+            AsyncClientStdioToolsExample.class.getMethod("main", String[].class);
             // If we get here, the method exists
             assertTrue(true);
         } catch (NoSuchMethodException e) {
-            fail("main method not found in AsyncClientExample");
+            fail("main method not found in AsyncClientStdioToolsExample");
         }
     }
     
     /**
-     * Test that verifies the client creation code in AsyncClientExample.
+     * Test that verifies the client creation code in AsyncClientStdioToolsExample.
      */
     @Test
     @Timeout(value = 10, unit = TimeUnit.SECONDS)
-    @DisplayName("AsyncClientExample should create a client correctly")
+    @DisplayName("AsyncClientStdioToolsExample should create a client correctly")
     public void testClientCreation() {
-        // This test verifies that the client creation code in AsyncClientExample is correct
+        // This test verifies that the client creation code in AsyncClientStdioToolsExample is correct
         // by creating a client using the same pattern
         
         try {
@@ -101,9 +101,9 @@ public class AsyncClientExampleTest {
      */
     @Test
     @Timeout(value = 10, unit = TimeUnit.SECONDS)
-    @DisplayName("AsyncClientExample should initialize client correctly")
+    @DisplayName("AsyncClientStdioToolsExample should initialize client correctly")
     public void testClientInitialization() {
-        // This test verifies that the client initialization code in AsyncClientExample is correct
+        // This test verifies that the client initialization code in AsyncClientStdioToolsExample is correct
         // Note: We're not actually connecting to a server, just verifying the code structure
         
         try {
